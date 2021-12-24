@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {useForm} from './custom'
 
 function expensiveInitialState (){
     return 4;
@@ -6,6 +7,20 @@ function expensiveInitialState (){
 
 const UseStateUsage =  ()  => {
     
+    return (
+        <div>
+            <p>Basic Usage</p>
+            <BasicUsage/>
+
+
+            <p>Handling Inputs</p>
+            <HandlingInputs/>
+        </div>
+    )
+}
+
+
+const BasicUsage = () => {
     useState(() => expensiveInitialState());
 
     // Base Setter
@@ -30,6 +45,19 @@ const UseStateUsage =  ()  => {
 
                 <p>Count1: {count1}</p>
                 <p>Count2: {count2}</p>
+            </div>
+    )
+}
+
+const HandlingInputs = () => {
+   
+
+    const [values, handleChange] = useForm({email: '', paassword: ''})
+
+    return (
+            <div>
+                <input name="email" value={values.email} onChange={handleChange}/>
+                <input type="password" name="password" value={values.password} onChange={handleChange} />
             </div>
     )
 }
