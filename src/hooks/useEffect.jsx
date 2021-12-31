@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {useForm} from './custom';
+import {useFetch, useForm} from './custom';
 import Hello from '../components/Hello';
 
 export function UseEffectUsage() {
@@ -10,6 +10,7 @@ export function UseEffectUsage() {
     });
     const [showHello, setShowHello] = useState(true);
  
+    const [count, setCount]= useState(JSON.parse(localStorage.getItem('count'))); 
 
     // useEffect(() => {
     //     console.log('render');
@@ -26,18 +27,22 @@ export function UseEffectUsage() {
     //     }
     // }, [values, showHello]);
 
+
     useEffect(() => {
-        console.log('mount1');
-    }, []);
-    useEffect(() => {
-        console.log('mount2');
-    })
+        localStorage.setItem('count', JSON.stringify(count));
+    }, [count])
+
+    const {data, loading} = useFetch(`https://numbersapi.com/${count}/trivia`)
 
     return (
         <div>
             <div>
              <h4>Use effect</h4>
-
+                <div>
+                   <p> {!data ? 'Loading ....' : data} </p>
+                   <div>Counter: {count}</div>
+                   <button onClick={() => setCount(c => c + 1)}>Increment</button>
+                </div>
                 <div>
                     <button type="button" onClick={() => setShowHello(!showHello)}>Toogle</button>
                     {showHello && <Hello/>}
