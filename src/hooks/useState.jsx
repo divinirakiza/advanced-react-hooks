@@ -5,7 +5,7 @@ function expensiveInitialState (){
     return 4;
 }
 
-const UseStateUsage =  ()  => {
+export function UseStateUsage() {
     
     return (
         <div>
@@ -61,5 +61,3 @@ const HandlingInputs = () => {
             </div>
     )
 }
-
-export default UseStateUsage;

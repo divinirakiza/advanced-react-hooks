@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Hooks from './hooks';
+import {UseEffectUsage, UseStateUsage} from './hooks';
 
 function expensiveInitialState() {
   return 10;
@@ -12,10 +12,10 @@ function expensiveInitialState() {
 
 
 const App = () => {
-
   return (
         <div>
-            <Hooks.UseState/>
+          {/* <UseStateUsage/> */}
+            <UseEffectUsage/>
         </div>
   )
 

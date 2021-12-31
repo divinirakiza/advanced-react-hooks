@@ -1,7 +1,3 @@
-import UseState from "./useState";
 
-const Hooks = {
-    UseState
-};
-
-export default Hooks;
+export * from './useState';
+export * from './useEffect';
