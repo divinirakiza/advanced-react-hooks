@@ -32,7 +32,7 @@ export function UseEffectUsage() {
         localStorage.setItem('count', JSON.stringify(count));
     }, [count])
 
-    const {data, loading} = useFetch(`https://numbersapi.com/${count}/trivia`)
+    const {data, loading} = useFetch(`http://numbersapi.com/${count}/trivia`)
 
     return (
         <div>
