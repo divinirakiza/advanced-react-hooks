@@ -11,13 +11,27 @@ export function UseEffectUsage() {
     const [showHello, setShowHello] = useState(true);
  
 
-    useEffect(() => {
-        console.log('render');
+    // useEffect(() => {
+    //     console.log('render');
 
-        return () => {
-            console.log('unmount');
-        }
-    }, [values, showHello]);
+    //     const onMouseMove = e => {
+    //         console.log(e);
+    //     }
+    //     window.addEventListener('mousemove', onMouseMove);
+
+    //     return () => {
+    //         console.log('unmount');
+    //     window.removeEventListener('mousemove', onMouseMove);
+
+    //     }
+    // }, [values, showHello]);
+
+    useEffect(() => {
+        console.log('mount1');
+    }, []);
+    useEffect(() => {
+        console.log('mount2');
+    })
 
     return (
         <div>
