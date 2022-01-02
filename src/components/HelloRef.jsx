@@ -6,7 +6,9 @@ export default function HelloRef() {
 
     console.log('Hello renders', renders.current++)
 
-    return (<div>
-        <p>Hello Ref</p>
-    </div>)
+    return (
+        <div>
+            <p>Hello Ref</p>
+        </div>
+    )
 }
